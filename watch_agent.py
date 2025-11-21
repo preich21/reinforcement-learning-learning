@@ -1,6 +1,7 @@
-# watch_agent.py
+import sys
 import pygame
 from stable_baselines3 import DQN
+from stable_baselines3 import PPO
 from env_flappy import FlappyBirdEnv
 
 WIDTH, HEIGHT = 400, 600
@@ -11,7 +12,10 @@ def main():
     clock = pygame.time.Clock()
 
     env = FlappyBirdEnv()
-    model = DQN.load("dqn_flappy")
+    if sys.argv[1] == "ppo":
+        model = PPO.load("ppo_flappy")
+    else:
+        model = DQN.load("dqn_flappy")
 
     obs, _ = env.reset()
     running = True

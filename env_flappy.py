@@ -84,13 +84,14 @@ class FlappyBirdEnv(gym.Env):
         # collisions
         if self.y <= 0.0 or self.y >= 1.0:
             done = True
-            # reward -= 0.5 # no extra penalty on death
 
         # check pipe collision (rough)
         if self.bird_x < self.pipe_x < self.bird_x + 0.05:  # in pipe column
             if abs(self.y - self.pipe_gap_y) > self.gap_half:
                 done = True
-                # reward -= 0.5 # no extra penalty on death
+
+        if done:
+            reward -= 0.5  # penalty for dying
 
         obs = self._get_obs()
         info = {"score": self.score}
