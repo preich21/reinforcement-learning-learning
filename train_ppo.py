@@ -21,5 +21,5 @@ if __name__ == "__main__":
         tensorboard_log="./logs_flappy/",
     )
 
-    model.learn(total_timesteps=500_000)
+    model.learn(total_timesteps=1_000_000)
     model.save("ppo_flappy")
