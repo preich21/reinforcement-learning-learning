@@ -1,5 +1,5 @@
-*_flappy.zip
-logs_flappy/
+**/*.zip
+**/*logs*
 
 misc.xml
 .idea/
