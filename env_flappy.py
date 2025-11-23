@@ -20,8 +20,8 @@ class FlappyBirdEnv(gym.Env):
         # physics params
         self.gravity      = -0.002
         self.flap_impulse =  0.03
-        self.pipe_speed   =  0.02
-        self.gap_half     =  0.05
+        self.pipe_speed   =  0.01
+        self.gap_half     =  0.1
         self.max_vy       =  0.3    # cap absolute vertical speed
 
         self.bird_x = 0.2   # fixed
@@ -33,7 +33,7 @@ class FlappyBirdEnv(gym.Env):
         self.y           = 0.5
         self.v_y         = 0.0
         self.pipe_x      = 1.0
-        self.pipe_gap_y  = np.random.uniform(0.1, 0.9)
+        self.pipe_gap_y  = self.np_random.uniform(0.1, 0.9)
         self.last_pipe_passed = False
         self.score = 0
 

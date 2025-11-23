@@ -12,10 +12,10 @@ def main():
     clock = pygame.time.Clock()
 
     env = FlappyBirdEnv()
-    if sys.argv[1] == "ppo":
-        model = PPO.load("ppo_flappy")
+    if len(sys.argv) > 0 and sys.argv[1] == "ppo":
+        model = PPO.load("ppo_flappy", device="cpu")
     else:
-        model = DQN.load("dqn_flappy")
+        model = DQN.load("dqn_flappy", device="cpu")
 
     obs, _ = env.reset()
     running = True
